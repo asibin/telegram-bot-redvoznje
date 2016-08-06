@@ -21,6 +21,7 @@ pip install -r requirements.txt
 Rename `settings-example.py` to `settings.py` and insert your token in TOKEN variable.
 You can get your token by contacting `@BotFather` on telegram and running `/newbot` command.
 
+Start your bot with `python telegram-bot.py`.
 
 ## Usage and Examples
 Type `/` and bot will offer available commands.
