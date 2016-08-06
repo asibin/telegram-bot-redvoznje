@@ -27,8 +27,8 @@ def get_bus_schedule(bot, update, args):
             LOG.debug("Request URL is: {}".format(url))
             bot.sendMessage(chat_id=update.message.chat_id, text=url)
     else:
-        LOG.warning('Only one bus number is required! Arguments passed: {}'.format(args))
-        bot.sendMessage(chat_id=update.message.chat_id, text='Only one bus number is required')
+        LOG.warning('Bus number is required! Arguments passed: {}'.format(args))
+        bot.sendMessage(chat_id=update.message.chat_id, text='Bus number is required, i.e. /bus 53')
 
 
 def get_train_schedule(bot, update, args):
@@ -44,6 +44,7 @@ def get_train_schedule(bot, update, args):
             LOG.debug("Requested arguments: {}".format(args[0]))
             bot.sendMessage(chat_id=update.message.chat_id, text=text)
     else:
-        LOG.warning('Only one starting station is required! Arguments passed: {}'.format(args))
-        bot.sendMessage(chat_id=update.message.chat_id, text='Only one starting station is required.\n{}'.format(text))
+        LOG.warning('Specify starting station. Arguments passed: {}'.format(args))
+        bot.sendMessage(chat_id=update.message.chat_id,
+                        text='Specify starting station, i.e. /train pancevacki.\n{}'.format(text))
 

@@ -1,0 +1,18 @@
+*Welcome to BGRedVoznje Telegram Bot*
+
+*Search for bus, night bus, tram, trolley or minibus information*
+To search for bus, night bus, minibus, trolley or tram schedules write /bus followed with line number you are searching for:
+
+/bus 53
+
+to get bus schedule for line 53.
+
+
+*Search from Belgrade train schedule (BG-Voz)*
+To get Belgrade train (BG-Voz) schedule type
+
+/train batajnica
+or
+/train pancevacki
+
+for trains starting from _Batajnica_ or _Pancevacki_ most station

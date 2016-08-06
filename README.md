@@ -2,6 +2,8 @@
 
 Belgrade public transportation telegram bot. 
 
+This was a friday night project so it is not perfect in any way :)
+
 Bot currently displays images of schedules of buses, night buses, minibuses, 
 trams, trolleys and Belgrade trains (BG-Voz) from an external service.
 
