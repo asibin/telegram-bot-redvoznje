@@ -17,12 +17,12 @@ with open("help-start-text.txt", 'r') as f:
 
 def start(bot, update):
     url = START_HELP_TXT
-    bot.sendMessage(update.message.chat_id, text=url.encode('UTF-8'), parse_mode=telegram.ParseMode.MARKDOWN)
+    bot.sendMessage(update.message.chat_id, text=url, parse_mode=telegram.ParseMode.MARKDOWN)
 
 
 def help(bot, update):
     url = START_HELP_TXT
-    bot.sendMessage(update.message.chat_id, text=url.encode('UTF-8'), parse_mode=telegram.ParseMode.MARKDOWN)
+    bot.sendMessage(update.message.chat_id, text=url, parse_mode=telegram.ParseMode.MARKDOWN)
 
 
 def unknown(bot, update):
