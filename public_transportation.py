@@ -1,9 +1,11 @@
 import logging
 from utils import BG_TRAIN_MAPPING, BG_TRAIN_URL, DOMAIN, MINIBUS_URL, BUS_URL, NIGHT_BUS_URL
+from utils import log_updates
 
 LOG = logging.getLogger(__name__)
 
 
+@log_updates
 def get_bus_schedule(bot, update, args):
     LOG.debug('Passed arguments: {}'.format(args))
     if len(args) == 1:
@@ -31,6 +33,7 @@ def get_bus_schedule(bot, update, args):
         bot.sendMessage(chat_id=update.message.chat_id, text='Bus number is required, i.e. /bus 53')
 
 
+@log_updates
 def get_train_schedule(bot, update, args):
     LOG.debug('Passed arguments: {}'.format(args))
     text = 'Allowed values are:\n{}'.format("\n".join(BG_TRAIN_MAPPING.iterkeys()))

@@ -6,7 +6,7 @@ from settings import TOKEN
 from public_transportation import get_bus_schedule, get_train_schedule
 from utils import unknown, start, help
 
-logging.basicConfig(level=logging.DEBUG,
+logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 updater = Updater(token=TOKEN)

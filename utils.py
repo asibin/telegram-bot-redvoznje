@@ -1,3 +1,5 @@
+import logging
+
 import telegram
 
 DOMAIN = 'http://www.busevi.com'
@@ -11,8 +13,24 @@ BG_TRAIN_MAPPING = {
     "pancevacki": 2
 }
 
+LOG = logging.getLogger()
+
 with open("help-start-text.txt", 'r') as f:
     START_HELP_TXT = f.read()
+
+
+# TODO: send statistics to graphite
+def log_updates(func):
+    def decorator(*args, **kwargs):
+        update = args[1].message.to_dict()
+        LOG.info("from: %s %s <%s> - query: %s - chat type: %s",
+                 update['from']['first_name'],
+                 update['from']['last_name'],
+                 update['from']['username'],
+                 update['text'],
+                 update['chat']['type'])
+        func(*args, **kwargs)
+    return decorator
 
 
 def start(bot, update):
