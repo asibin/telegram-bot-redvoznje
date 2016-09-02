@@ -47,7 +47,7 @@ def get_bus_schedule(bot, update, args):
 @log_updates
 def get_train_schedule(bot, update, args):
     LOG.debug('Passed arguments: {}'.format(args))
-    text = 'Allowed values are:\n{}'.format("\n".join(BG_TRAIN_MAPPING.iterkeys()))
+    text = 'Allowed values are:\n{}'.format("\n".join(BG_TRAIN_MAPPING.items()))
 
     if len(args) == 1:
         try:
