@@ -22,7 +22,7 @@ def get_bus_schedule(bot, update, args):
 
             elif req.upper().endswith('N'):
                 req = req[:-1]  # Strip out N
-                url = NIGHT_BUS_URL.format(DOMAIN, req)
+                url = "[Night Bus {}]({})".format(req.upper(), NIGHT_BUS_URL.format(DOMAIN, req))
 
                 LOG.debug("Request URL is: {}".format(url))
                 bot.sendMessage(chat_id=update.message.chat_id, text=url)
@@ -30,7 +30,9 @@ def get_bus_schedule(bot, update, args):
                 break  # Night buses have only one image for both directions
 
             else:  # This is a normal bus line
-                url = BUS_URL.format(DOMAIN, req.lower(), direction)
+                url = "[{} direction {}]({})".format(req.upper(),
+                                                     direction,
+                                                     BUS_URL.format(DOMAIN, req.lower(), direction))
 
             LOG.debug("Request URL is: {}".format(url))
             bot.sendMessage(chat_id=update.message.chat_id, text=url,  parse_mode=ParseMode.MARKDOWN)
@@ -47,7 +49,7 @@ def get_train_schedule(bot, update, args):
     if len(args) == 1:
         try:
             direction = BG_TRAIN_MAPPING[args[0]]
-            url = BG_TRAIN_URL.format(DOMAIN, direction)
+            url = "[Station: {}]({})".format(direction, BG_TRAIN_URL.format(DOMAIN, direction))
             LOG.debug("Generated BG_TRAIN url: {}".format(url))
             bot.sendMessage(chat_id=update.message.chat_id, text=url, parse_mode=ParseMode.MARKDOWN)
         except KeyError:
