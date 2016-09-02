@@ -28,7 +28,7 @@ def get_bus_schedule(bot, update, args):
                                                   .replace(")", "%29"))
 
                 LOG.debug("Request URL is: {}".format(url))
-                bot.sendMessage(chat_id=update.message.chat_id, text=url)
+                bot.sendMessage(chat_id=update.message.chat_id, text=url, parse_mode=ParseMode.MARKDOWN)
 
                 break  # Night buses have only one image for both directions
 
