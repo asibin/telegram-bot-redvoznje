@@ -22,7 +22,10 @@ def get_bus_schedule(bot, update, args):
 
             elif req.upper().endswith('N'):
                 req = req[:-1]  # Strip out N
-                url = "[Night Bus {}]({})".format(req.upper(), NIGHT_BUS_URL.format(DOMAIN, req))
+                url = "[Night Bus {}]({})".format(req.upper(),
+                                                  NIGHT_BUS_URL.format(DOMAIN, req)
+                                                  .replace("(", "%28")
+                                                  .replace(")", "%29"))
 
                 LOG.debug("Request URL is: {}".format(url))
                 bot.sendMessage(chat_id=update.message.chat_id, text=url)
