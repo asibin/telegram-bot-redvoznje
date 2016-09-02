@@ -52,7 +52,7 @@ def get_train_schedule(bot, update, args):
     if len(args) == 1:
         try:
             direction = BG_TRAIN_MAPPING[args[0]]
-            url = "[Station: {}]({})".format(direction, BG_TRAIN_URL.format(DOMAIN, direction))
+            url = "[Station: {}]({})".format(args[0], BG_TRAIN_URL.format(DOMAIN, direction))
             LOG.debug("Generated BG_TRAIN url: {}".format(url))
             bot.sendMessage(chat_id=update.message.chat_id, text=url, parse_mode=ParseMode.MARKDOWN)
         except KeyError:
